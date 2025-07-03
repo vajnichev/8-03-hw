@@ -14,15 +14,16 @@
 
 1. `Gitlab установлен `
 
-![img]()
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.1.png)
 
 2. `Создайте новый проект и пустой репозиторий в нём.`
 
-![img]()
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.2.png)
 
 3. `Зарегистрируйте gitlab-runner для этого проекта и запустите его в режиме Docker. Раннер можно регистрировать и запускать на той же виртуальной машине, на которой запущен GitLab.`
 
-![img]()
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.3.png)
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.4.png)
 
 
 
@@ -40,4 +41,31 @@
 
 1. `Запушьте репозиторий на GitLab, изменив origin. Это изучалось на занятии по Git.`
 
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.7.png)
+
 2. `Создайте .gitlab-ci.yml, описав в нём все необходимые, на ваш взгляд, этапы.`
+```yaml
+stages:
+  - test
+  - build
+
+test_go_1:
+  stage: test
+  image: golang:1.17
+  script:
+   - go test .
+  tags:
+   - ���netology
+
+build_job_1:
+  stage: build
+  image: docker:latest
+  script:
+   - docker build .
+  tags:
+   - ���netology
+```
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.5.png)
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.6.png)
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.8.png)
+![img](https://github.com/vajnichev/8-03-hw/blob/master/img/8.4.9.png)
